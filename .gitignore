@@ -1,0 +1,13 @@
+**.temp
+**.raddbg_project
+**.rdi
+**.exe
+**.pdb
+**.rdbg
+**.code-workspace
+**.vscode
+.build/
+**.ini
+jails.json
+examples/sandbox/modules
+examples/sandbox/bin/**.dll

@@ -41,10 +41,10 @@ clone_dependencies :: () {
     }
     make_directory_if_it_does_not_exist("modules");
     scope_set_working_directory("modules");
-
+    
     // Depencencies
     try_clone_dependency("Tuki"        ,"https://github.com/asu4net/Tuki");
-    try_clone_dependency("SDL3"        ,"https://github.com/overlord-systems/jai-sdl3");
+    try_clone_dependency("SDL3"        ,"https://github.com/asu4net/jai-sdl3");
     try_clone_dependency("ImGui"       ,"https://github.com/asu4net/ImGui");
     try_clone_dependency("StbTrueType" ,"https://github.com/asu4net/StbTrueType");
     

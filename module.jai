@@ -23,7 +23,7 @@
 #import "Math";
 #import "GL" (DUMP_GL_ERRORS = DEBUG);
 #import "stb_image";
-#import "stb_truetype";
+#import "StbTrueType";
 #import "stb_image_write";
 
 #if IMGUI then ImGui :: #import "ImGui";

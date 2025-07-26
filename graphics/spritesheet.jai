@@ -106,7 +106,7 @@ generate_spritesheet :: (sheet : *Spritesheet, sheet_name := DEF_SHEET_NAME, max
     table_ensure_space(*sheet.rects, images.count);
     defer free(images.data);
 
-    images_width : s32;
+    images_width : s64;
     for images images_width += it.width;
 
     sheet_width := min(images_width, max_width);
@@ -177,7 +177,7 @@ generate_spritesheet :: (sheet : *Spritesheet, sheet_name := DEF_SHEET_NAME, max
 
     upload_texture_to_gpu(*sheet.tex);
     flip_pixels(sheet.tex.pixels.data, sheet_width, sheet_height ,,temp);
-    stbi_write_png(to_c_string(full_path_png ,,temp), sheet_width, sheet_height, 4, sheet.tex.pixels.data, sheet_width * 4);
+    stbi_write_png(to_c_string(full_path_png ,,temp), xx sheet_width, xx sheet_height, 4, sheet.tex.pixels.data, sheet_width.(s32) * 4);
     string_sheet := json_write_string(sheet_def ,,temp);
     write_entire_file(full_path_json, string_sheet);
 }

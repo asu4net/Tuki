@@ -13,7 +13,11 @@
 
 #scope_module
 
+#import "Basic";
+#import "Jaison";
 #import "System";
+#import "File";
+#import "File_Utilities";
 #import "String";
 #import "Window_Creation";
 #import "Windows_Resources";

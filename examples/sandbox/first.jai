@@ -15,7 +15,7 @@ main :: () {
         Tuki.draw_circle(pos = Tuki.ONE_2D);
         Tuki.draw_gui_quad();
         Tuki.draw_gui_quad(Tuki.make_matrix(pos = Tuki.RIGHT_2D * 300), tint = Tuki.LIGHT_RED);
-        Tuki.draw_gui_text();
+        //Tuki.draw_gui_text();
         Tuki.draw_quad();
         #if IMGUI {
             ImGui.Begin("Buenas tardes!");

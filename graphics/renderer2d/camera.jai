@@ -41,6 +41,6 @@ update_render_camera :: (using camera : *Camera) {
     if mode == {
         case .ORTHO_WORLD;  update_ortho_world(camera);
         case .ORTHO_SCREEN; update_ortho_screen(camera);
-        case .NONE; assert(false);
+        case .NONE; // Don't do anything.
     }
 }

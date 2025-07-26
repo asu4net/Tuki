@@ -3,6 +3,7 @@
 draw_gui_text :: (pos := ZERO_2D, ang := (0).(f32), scl := ONE_2D, text := "", font: *Font = null, blend := Blend.ALPHA, tint := WHITE, id := (0).(u32)) {
     assert(font != null);
     draw_primitive2d(.QUAD, .ORTHO_SCREEN, blend);
+    using state = context.renderer2d;
 
     x_pos, y_pos : f32;
     

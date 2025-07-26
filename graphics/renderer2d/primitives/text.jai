@@ -20,7 +20,7 @@ draw_gui_text :: (pos := ZERO_2D, ang := (0).(f32), scl := ONE_2D, text := "", f
         
         coef_x := state.camera.viewport_w / state.gui_width;
         coef_y := state.camera.viewport_h / state.gui_height;
-        coef := min(coef_x, coef_y);
+        coef := (min(coef_x, coef_y)).(f32);
 
         vertex_positions[0] = .{d.x0 * coef + x_pos, d.y1 * coef + y_pos, 0, 1};
         vertex_positions[1] = .{d.x1 * coef + x_pos, d.y1 * coef + y_pos, 0, 1};

@@ -54,7 +54,7 @@ draw_quad :: (mat := IDENTITY, tex: *Texture = null, tiling := ONE_2D, size := O
         }
     }
     
-    using state = context.renderer2d;
+    using state := context.renderer2d;
 
     for *vertex_positions it.* = mat * it.*;
     
@@ -128,32 +128,6 @@ draw_gui_quad :: (mat := IDENTITY, tex: *Texture = null, tiling := ONE_2D, size 
 }
 
 #scope_file
-
-assign_tex_slot :: (texture : *Texture) -> (tex_slot : s32) {
-
-    using state := context.renderer2d;
-
-    tex_slot: s32 = xx Default_Texture_Slots.WHITE;
-    if texture == null {
-        return tex_slot;
-    }
-
-    for i : 0..state.last_tex_slot - 1{
-        if state.textures_to_bind[i].id == texture.id {
-            tex_slot = i;
-            break;
-        }
-    }
-    if tex_slot == 0 {
-        if state.last_tex_slot > MAX_TEXTURE_SLOTS {
-            flush_renderer2d();
-        }
-        state.textures_to_bind[state.last_tex_slot] = texture;
-        tex_slot = state.last_tex_slot;
-        state.last_tex_slot += 1;
-    }
-    return tex_slot;
-}
 
 flip_quad_vertex_uv :: (vertex_uvs : *Vector2Verts2D, flip_x : bool, flip_y : bool) {
 

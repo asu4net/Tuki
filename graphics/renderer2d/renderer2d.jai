@@ -199,3 +199,29 @@ flush_renderer2d :: () {
     circle_count       = 0;
     circle_index_count = 0;
 }
+
+assign_tex_slot :: (texture : *Texture) -> (tex_slot : s32) {
+
+    using state := context.renderer2d;
+
+    tex_slot: s32 = xx Default_Texture_Slots.WHITE;
+    if texture == null {
+        return tex_slot;
+    }
+
+    for i : 0..state.last_tex_slot - 1{
+        if state.textures_to_bind[i].id == texture.id {
+            tex_slot = i;
+            break;
+        }
+    }
+    if tex_slot == 0 {
+        if state.last_tex_slot > MAX_TEXTURE_SLOTS {
+            flush_renderer2d();
+        }
+        state.textures_to_bind[state.last_tex_slot] = texture;
+        tex_slot = state.last_tex_slot;
+        state.last_tex_slot += 1;
+    }
+    return tex_slot;
+}
